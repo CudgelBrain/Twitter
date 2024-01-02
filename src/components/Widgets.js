@@ -1,9 +1,11 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import News from "./News";
 import { useState } from "react";
+import ToFollowIds from "./ToFollowIds";
 
-export default function Widgets({theResults}) {    {/*{newsResult*/}
+export default function Widgets({theResults,whoToFollow}) {    {/*{newsResult*/}
  const [articleNum,setArticleNum] = useState(3);
+ const [idNum,setIdNum] = useState(3);
 return (
     // INPUT SEARCH BAR MADE ROUNDED WITH RELATIVE AND ABSOLUTE
     <div className="xl:w-[600px] hidden lg:inline ml-8 space-y-5">
@@ -19,6 +21,14 @@ return (
           <News key={article.title} article = {article}/>
         ))}
         <button onClick={() => setArticleNum(articleNum+3)} className="text-blue-300 pl-4 pb-3 hover:text-blue-400">Show more</button>
+        </div>
+        <div className="text-gray-700 space-y-3 bg-gray-100 rounded-xl pt-2 w-[90%] xl:w-[75%] sticky top-16">
+          <h4 className="font-bold text-xl px-4">Who to follow</h4>
+        {whoToFollow.slice(0,idNum).map((userid) => (
+          <ToFollowIds key={userid.login.username} userid = {userid}/>
+        ))}
+        <button className="text-blue-300 pl-4 pb-3 hover:text-blue-400" onClick={() => setIdNum(idNum+3)}>Show more</button>
+        
         </div>
         
     </div>

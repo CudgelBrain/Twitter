@@ -5,7 +5,7 @@ import Widgets from "@/components/Widgets";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ newsResult }) {
+export default function Home({ newsResult,randomId }) {
   return (
     <div>
       <title>Twitter</title>
@@ -17,7 +17,7 @@ export default function Home({ newsResult }) {
         {/* Feed Section */}
         <Feed />
         {/* Widgets */}
-        <Widgets theResults={newsResult.articles} />{" "}
+        <Widgets theResults={newsResult.articles} whoToFollow = {randomId.results}/>{" "}
         {/* <Widgets newsResult={newsResult} /> */}
         {/* Modal */}
       </main>
@@ -27,11 +27,16 @@ export default function Home({ newsResult }) {
 
 export async function getServerSideProps() {
   const newsResult = await fetch(
-    "https://saurav.tech/NewsAPI/top-headlines/category/business/in.json"
+    "https://saurav.tech/NewsAPI/top-headlines/category/technology/in.json"
   ).then((res) => res.json());
+  //who to follow
+  const randomId = await fetch("https://randomuser.me/api/?results=50").then((res) => res.json()) /*https://randomuser.me/api/?results=50&inc=name,picture <= this can be the query too. according to needs*/
   return {
     props: {
       newsResult,
+      randomId
     },
   };
 }
+
+
