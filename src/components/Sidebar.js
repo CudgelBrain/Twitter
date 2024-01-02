@@ -12,7 +12,7 @@ import EllipsisHorizontalIcon from "@heroicons/react/24/outline/EllipsisHorizont
 
 export default function Sidebar() {
   return (
-    <div className="hidden sm:flex flex-col p-2 fixed xl:items-start h-full">
+    <div className="hidden sm:flex flex-col p-2 fixed xl:items-start h-full xl:ml-24">  {/*Had to add xl:ml-24 but i didnt*/}
       {/* twitter logo */}
       <div className="hoverEffect p-0 hover:bg-blue-100">
         <Image
@@ -45,7 +45,7 @@ export default function Sidebar() {
           <h4 className="font-bold">Sneha Singh</h4>
           <p className="text-gray-500">@sneh_bsspr</p>
         </div>
-        <EllipsisHorizontalIcon style={{height:"20px"}} className="ml-8 hidden xl:inline"/>
+        <EllipsisHorizontalIcon className="ml-8 hidden xl:inline h-7"/> {/*Added h-7*/}
       </div>
     </div>
   );
