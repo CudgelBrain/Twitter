@@ -2,7 +2,8 @@ import { ChartBarIcon, ChatBubbleOvalLeftEllipsisIcon, EllipsisHorizontalIcon, H
 
 export default function Posts({ post }) {
   return (
-    <div className="flex p-3 cursor-pointer border-b border-gray-200">
+    <div className="flex p-3 cursor-pointer border-b border-gray-200
+    =';9l87fd ">
       {/* User image*/}
       <div className="p-2">
         <img

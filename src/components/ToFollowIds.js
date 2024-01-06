@@ -2,7 +2,7 @@
 export default function ToFollowIds({userid}) {
   return (
     <div className="">
-        <div className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-200">
+        <div className="flex items-center px-4 py-3 cursor-pointer hover:bg-gray-200">
             <img src={userid.picture.thumbnail} alt="" width="40" className="rounded-full" />
             <div className="truncate ml-4 leading-5">
                 <h4 className="font-bold hover:underline text-[16px] truncate">{userid.login.username}</h4>
