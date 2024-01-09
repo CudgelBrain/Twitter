@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 import SidebarMenuItem from "../components/SidebarMenuItem";
 import HomeIcon from "@heroicons/react/24/solid/HomeIcon";
 import HashtagIcon from "@heroicons/react/24/outline/HashtagIcon";
@@ -11,6 +12,7 @@ import EllipsisHorizontalCircleIcon from "@heroicons/react/24/outline/EllipsisHo
 import EllipsisHorizontalIcon from "@heroicons/react/24/outline/EllipsisHorizontalIcon";
 
 export default function Sidebar() {
+  const {data:session} = useSession();
   return (
     <div className="hidden sm:flex flex-col p-2 fixed xl:items-start h-full xl:ml-24">  {/*Had to add xl:ml-24 but i didnt*/}
       {/* twitter logo */}
@@ -31,6 +33,7 @@ export default function Sidebar() {
         <SidebarMenuItem text="Lists" Icon={ClipboardIcon} />
         <SidebarMenuItem text="Profile" Icon={UserIcon} />
         <SidebarMenuItem text="More" Icon={EllipsisHorizontalCircleIcon} />
+        <SidebarMenuItem text="Profile" Icon={UserIcon} />
       </div>
       {/* Button */}
       <button className="bg-blue-400 text-white rounded-full w-56 h-12 font-bold shadow-md hover:brightness-95 text-lg hidden xl:inline">Tweet</button>
